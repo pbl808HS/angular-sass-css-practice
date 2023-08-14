@@ -1,0 +1,21 @@
+<div class="w3-container">
+  <div class="w3-panel">
+    <p>Messages</p>
+    <ul class="w3-ul">
+      <li *ngFor="let msg of mail.messages">
+        <input class="w3-check" type="checkbox"> {{msg.text}}
+      </li>
+    </ul>
+
+  </div>
+  <div class="w3-panel">
+
+    <p>edit section</p>
+    <ul class="w3-ul w3-border">
+      <li *ngFor="let message of mail.messages">
+        <app-simple-form [dataMessage]="message" (update)="onUpdate(message.id, $event)"></app-simple-form>
+      </li>
+    </ul>
+
+  </div>
+</div>

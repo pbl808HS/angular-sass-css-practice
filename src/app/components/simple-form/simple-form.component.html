@@ -1,0 +1,29 @@
+<div *ngIf="!editMessage">
+    <div class="w3-bar-item  w3-threequarter">
+      {{ dataMessage.text }}
+    </div>
+    <div class="w3-bar-item w3-quarter">
+    <button
+      (click)="editMessage = true"
+      class="w3-button w3-block w3-red">
+      edit
+    </button>
+    </div>
+  </div>
+  <div *ngIf="editMessage" class="w3-bar">
+    <input
+      #myInput type="text"
+      [(ngModel)]="dataMessage.text"
+      [ngClass]="{mousedown: isMousedown}"
+      (mousedown)="isMousedown = true"
+      (mouseup)="isMousedown = false"
+      (mouseleave)="isMousedown = false"
+      class="w3-input w3-twothird"
+    >
+    <button
+      (click)="onClick(myInput.value)"
+      class="w3-btn w3-blue w3-third"
+    >
+      save
+    </button>
+  </div>
