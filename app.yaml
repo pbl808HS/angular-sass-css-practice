@@ -1,0 +1,20 @@
+runtime: python39
+service: default
+handlers:
+    - url: /(.*\.(gif|png|jpg|css|js|woff2|ttf|woff|svg|json)(|\.map))$
+      static_files: dist/beer-gae/\1
+      upload: dist/beer-gae/(.*)(|\.map)
+    - url: /(.*)
+      static_files: dist/beer-gae/index.html
+      upload: dist/beer-gae/index.html
+
+skip_files:
+  - e2e/
+  - node_modules/
+  - src/
+  - coverage
+  - ^(.*/)?\..*$
+  - ^(.*/)?\.json$
+  - ^(.*/)?\.md$
+  - ^(.*/)?\.yaml$
+  - ^LICENSE
